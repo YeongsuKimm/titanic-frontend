@@ -112,7 +112,8 @@ button:hover {
     <button type="submit">Predict Survival</button>
   </form>
 
-  <div id="result"></div>
+  <div id="surv"></div>
+  <div id="death"></div>
 </div>
 
 <script>
@@ -148,11 +149,12 @@ function predictSurvival() {
   .then(response => response.json())
   .then(data => {
     // Display prediction result
-    document.getElementById("result").innerHTML = data.death + data.survival;
+    document.getElementById("surv").innerHTML = data.survival;
+    document.getElementById("death").innerHTML = data.death
   })
   .catch(error => {
     console.error("Error:", error);
-    document.getElementById("result").innerHTML = "An error occurred. Please try again.";
+    document.getElementById("surv").innerHTML = "An error occurred. Please try again.";
   });
 }
 </script>
